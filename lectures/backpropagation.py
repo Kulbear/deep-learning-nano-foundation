@@ -31,7 +31,7 @@ error = target - output
 del_err_output = error * output * (1 - output)
 # calculate error gradient for hidden layer
 del_err_hidden = np.dot(del_err_output, weights_hidden_output) * hidden_layer_output * (
-1 - hidden_layer_output)
+    1 - hidden_layer_output)
 # calculate change in weights for hidden layer to output layer
 delta_w_h_o = learning_rate * del_err_output * hidden_layer_output
 # calculate change in weights for input layer to hidden layer
