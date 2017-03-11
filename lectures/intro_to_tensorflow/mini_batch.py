@@ -1,7 +1,6 @@
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import numpy as np
-import math
 
 
 def batches(batch_size, features, labels):
@@ -57,7 +56,6 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minim
 correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(labels, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
-# TODO: Set batch size
 batch_size = 128
 assert batch_size is not None, 'You must set the batch size'
 
@@ -66,7 +64,7 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
 
-    # TODO: Train optimizer on all batches
+    # Train optimizer on all batches
     for batch_features, batch_labels in batches(batch_size, train_features, train_labels):
         sess.run(optimizer, feed_dict={features: batch_features, labels: batch_labels})
 
